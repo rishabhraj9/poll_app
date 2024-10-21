@@ -48,4 +48,3 @@ def detail(request, question_id):
 
 
 
-
