@@ -21,6 +21,8 @@ deploy:
   app: "django-env"
   env: "django-env"
   bucket_name: "elasticbeanstalk-us-west-2-557690601377"
+  on:
+    branch: main
 
 after_success:
   - coveralls
