@@ -18,9 +18,9 @@ after_scripts:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $aws-access-key
-  secret_access_key: $aws-secret-key
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
   region: "us-west-2"
   app: "django-env"
   env: "django-env"
-  bucket_name: "elasticbeanstalk-us-west-2-557690601377 "
+  bucket_name: "elasticbeanstalk-us-west-2-557690601377"
