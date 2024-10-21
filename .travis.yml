@@ -3,7 +3,9 @@ python:
   - "3.8"
 
 install:
-  - pip install -r requirements.txt
+  - python -m pip install --upgrade setuptools==70.0.0
+  - python -m pip install -r requirements.txt
+  - python -m pip install black flake8 coverage coveralls
 
 script:
 - black --check .
@@ -11,11 +13,14 @@ script:
 - coverage run manage.py test
 - env
 
+after_scripts:
+- coveralls
+
 deploy:
   provider: elasticbeanstalk
   access_key_id: $aws-access-key
   secret_access_key: $aws-secret-key
-  region: "us-east-1"
-  app: "example-app-name"
-  env: "example-app-environment"
-  bucket_name: "the-target-S3-bucket"
+  region: "us-west-2"
+  app: "django-env"
+  env: "django-env"
+  bucket_name: "elasticbeanstalk-us-west-2-557690601377 "
