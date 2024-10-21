@@ -11,10 +11,7 @@ script:
 - black --check .
 - flake8 --max-line-length=100 .
 - coverage run manage.py test
-- env
-
-after_scripts:
-- coveralls
+- coverage report
 
 deploy:
   provider: elasticbeanstalk
@@ -24,3 +21,6 @@ deploy:
   app: "django-env"
   env: "django-env"
   bucket_name: "elasticbeanstalk-us-west-2-557690601377"
+
+after_success:
+  - coveralls
